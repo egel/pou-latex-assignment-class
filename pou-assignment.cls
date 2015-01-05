@@ -1,18 +1,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%  FileName:     uekthesis.cls
+%  FileName:     pou-assignment.cls
 %  Author:       Maciej Sypień (maciej.sypien@gmail.com)
-%  University:   Cracow University of Economics
-%                (Uniwersytet Ekonomiczny w Krakowie)
-%  Inspired by aghdpl.cls
+%  University:   Polish Open University
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\message{### uekthesis.cls --- ver. 1.0.0 --- Maciej Sypień ###}
+\message{### pou-assignment.cls --- ver. 1.0.0 --- Maciej Sypień ###}
 
 \newif\ifpdflatex\pdflatexfalse%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{lib/uekthesis}[2014/16/12 LaTeX class for thesis documents]
+\ProvidesClass{lib/uekthesis}[2014/16/12 LaTeX class for university assignments]
 \DeclareOption{pdflatex}{\pdflatextrue}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessOptions\LoadClass[a4paper, 12pt, oneside, openright]{report}
@@ -25,9 +23,9 @@
 \def\globalFullTitle#1         {\gdef\@globalFullTitle{#1}}         % Pełny tytuł pracy
 \def\globalShortTitle#1        {\gdef\@globalShortTitle{#1}}        % Krótki, zwięzły tytuł pracy # najlepiej aby nie zawierał komend LaTeXa
 \def\globalFullUniversity#1    {\gdef\@globalFullUniversity{#1}}    % Pełna nazwa uniwersytetu
-\def\globalShortUniversity#1   {\gdef\@globalShortUniversity{#1}}   % Pełna nazwa uniwersytetu
+\def\globalShortUniversity#1   {\gdef\@globalShortUniversity{#1}}   % Skrócona nazwa uniwersytetu
 \def\globalDepartment#1        {\gdef\@globalDepartment{#1}}        % Wydział
-\def\globalThesisType#1        {\gdef\@globalThesisType{#1}}        % Typ pracy dyplomowej
+\def\globalAssignmentType#1        {\gdef\@globalAssignmentType{#1}}        % Typ pracy
 \def\globalSupervisor#1        {\gdef\@globalSupervisor{#1}}        % Promotor
 \def\globalAcknowledgements#1  {\gdef\@globalAcknowledgements{#1}}  % Podziękowania
 \def\globalDegreeprogramme#1   {\gdef\@globalDegreeprogramme{#1}}   % Kierunek studiów
@@ -46,7 +44,7 @@
 \def\printFullUniversity{\@globalFullUniversity}      % Display
 \def\printShortUniversity{\@globalShortUniversity}    % Display
 \def\printDepartment{\@globalDepartment}              % Display
-\def\printThesisType{\@globalThesisType}              % Display
+\def\printAssignmentType{\@globalAssignmentType}      % Display
 \def\printSupervisor{\@globalSupervisor}              % Display
 \def\printAcknowledgments{\@globalAcknowledgements}   % Display
 \def\printDegreeprogramme{\@globalDegreeprogramme}    % Display
@@ -71,7 +69,7 @@
     pdfstartview={FitH},    % fits the width of the page to the window
     pdftitle={\printShortTitle},         % title
     pdfauthor={\printFullAuthor},        % author
-    pdfsubject={\printThesisType},       % subject of the document
+    pdfsubject={\printAssignmentType},   % subject of the document
     pdfcreator={\printFullAuthor},       % creator of the document
     pdfproducer={\printFullAuthor},      % producer of the document
     pdfkeywords={\printKeywords},        % list of keywords
@@ -123,7 +121,7 @@
 \RequirePackage{chngcntr}              % pakiet który definiuje komendy \coun­ter­within oraz \coun­ter­with­out
 \RequirePackage{textcomp, gensymb}     % pakiet który definiuje znaki m.in. \degree, \textdegree
 \RequirePackage{cases}                 % pakiet numeracji równań z 'numcases'
-\RequirePackage{todonotes}             % pakiet pomagający przy prowadzeniu notatek "Co jeszcze do zrobienia"
+\RequirePackage{todonotes}             % pakiet pomagający przy prowadzeniu notatek, tzw. "Co jeszcze do zrobienia"
 
 %##############################################################################
 % DEFAULT OPTIONS
@@ -170,6 +168,7 @@
   \def\statementOfTheAuthor{}
   \def\authorThanks{}
 
+
   %############################################################################
   % Supervisor
   \def\addSupervisor{
@@ -179,11 +178,11 @@
     \end{flushright}
   }
 
+
   %############################################################################
   % Ustawienia parametrów dla tytułów rozdziałów, podrozdziałów, itd.
-
   \titleformat{\chapter}[block]
-    {\bfseries\Huge}{\filright \LARGE\thechapter. }{0ex}{}
+    {\bfseries\Huge}{\filright\LARGE\thechapter. }{0ex}{}
 
   % odstępy: lewy, góra, dół
   \titlespacing{\chapter}{0pt}{17mm}{19mm}
@@ -199,7 +198,6 @@
   \titleformat{\subsubsection}[block]
     {\bfseries\normalsize}{\filright\normalsize\thesubsubsection. }{0ex}{}
   \titlespacing{\subsubsection}{0mm}{3mm}{1.5mm}
-
 %########################## END OF DEFAULT OPTIONS ############################
 
 
@@ -226,6 +224,7 @@
   \def\addVersion{ / wersja: \@globalFileVersion}
 }
 
+
 %##############################################################################
 % Student's Index Number (Class OPTION)
 \DeclareOption{indexNumber}{%
@@ -245,7 +244,7 @@
     \def\statementOfTheAuthor{
       \titlepage%
       \vspace*{10mm}
-      {\large\textit O\'swiadczam, \'swiadomy odpowiedzialno\'sci karnej za po\'swiadczenie nieprawdy, \.ze \mbox{niniejsz\k{a}} prac\k{e} dyplomow\k{a} wykona\l{}em osobi\'scie i samodzielnie oraz nie korzysta\l{}em ze \'zr\'ode\l{} innych ni\.z wymienione w pracy.}
+      {\large\textit O\'swiadczam, \'swiadomy odpowiedzialno\'sci karnej za po\'swiadczenie nieprawdy, \.ze \mbox{niniejsz\k{a}} prac\k{e} wykona\l{}em osobi\'scie i samodzielnie oraz nie korzysta\l{}em ze \'zr\'ode\l{} innych ni\.z wymienione w pracy.}
       \vspace{20mm}
 
       \hfill \dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots
@@ -261,7 +260,7 @@
     \def\statementOfTheAuthor{
       \titlepage%
       \vspace*{10mm}
-      {\large\textit O\'swiadczam, \'swiadoma odpowiedzialno\'sci karnej za po\'swiadczenie nieprawdy, \.ze \mbox{niniejsz\k{a}} prac\k{e} dyplomow\k{a} wykona\l{}am osobi\'scie i samodzielnie oraz nie korzysta\l{}am ze \'zr\'ode\l{} innych ni\.z wymienione w pracy.}
+      {\large\textit O\'swiadczam, \'swiadoma odpowiedzialno\'sci karnej za po\'swiadczenie nieprawdy, \.ze \mbox{niniejsz\k{a}} prac\k{e} wykona\l{}am osobi\'scie i samodzielnie oraz nie korzysta\l{}am ze \'zr\'ode\l{} innych ni\.z wymienione w pracy.}
       \vspace{20mm}
 
       \hfill \dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots
@@ -290,6 +289,7 @@
   }
 }% END thanks
 
+
 %##############################################################################
 \ProcessOptions%
 \newcommand{\titlepages}{% Ustawienia stron tytułowych
@@ -312,7 +312,7 @@
 
     {\Huge\bfseries\printFullTitle}\\
     \vspace*{10mm}
-    {\large \printThesisType{\ }\addVersion}\\
+    {\large \printAssignmentType{\ }\addVersion}\\
     \vspace*{10mm}
   \end{center}
 
