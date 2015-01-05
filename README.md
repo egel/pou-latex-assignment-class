@@ -1,7 +1,7 @@
-# UEK LaTeX Thesis Class
+# POU LaTeX Assignment Class
 [![MIT License](http://img.shields.io/badge/license-MIT-yellowgreen.svg)](https://github.com/egel/uek-latex-thesis-class/blob/master/LICENSE)
 
-LaTeX long assignment class created for students of Polish Open University.
+LaTeX class for short/long assignments created for students of Polish Open University.
 
 * * *
 [Installation](#installation) | [Class options](#class-options) | [Live example](https://www.sharelatex.com/project/548b548ddbb91e9c7f2351d6) | [License](#license)
@@ -22,16 +22,17 @@ LaTeX long assignment class created for students of Polish Open University.
 
 > Options are Case Sensitive (so there is a difference between `indexNumber` and `indexnumber` and `IndexNumber`)
 
-  - `male` or `female` --- sets all generall setting (like ex: author statement) to men or women preferences (**default value is**: male);
+  - `male` or `female` - sets all general setting (like ex: author's statement) to men or women preferences (**default value is**: male);
 
-  - `authorStatement` --- prints author's statement (**default value is**: off) <br/>This attach to document that author's thesis was made by himself and himself alone.
+  - `authorStatement` - prints author's statement (**default value is**: off) <br/>This attach to document that author's thesis was made by himself and himself alone.
 
-  - `twoside` --- sets type of printing of the document (**default value is**: oneside);
+  - `twoside` - sets type of printing of the document (**default value is**: oneside);
 
-  - `fileVersion` --- print version of document (**default value is**: off) <br/>It's usually used only for helping purposes. This option is defined by `\globalVersion` variable.
+  - `fileVersion` - print version of document (**default value is**: off) <br/>It's usually used only for helping purposes. This option is defined by `\globalVersion` variable.
 
-  - `indexNumber` --- print student's index number; (**default value is**: off) <br/>This option is defined by `\globalIndexNumber` variable.
+  - `indexNumber` - print student's index number; (**default value is**: off) <br/>This option is defined by `\globalIndexNumber` variable.
 
+  - `thanks` - Author's thanks page () (**default value is**: off) <br/>This option is defined by `\globalAcknowledgements` variable.
 
 ## Installation
 
